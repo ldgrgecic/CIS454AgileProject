@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "33825169607",
+    "firebase_url": "https://cis454agileproject.firebaseio.com",
+    "project_id": "cis454agileproject",
+    "storage_bucket": "cis454agileproject.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:33825169607:android:ff9e594c65047a60",
+        "android_client_info": {
+          "package_name": "com.example.cis454agileproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "33825169607-4t6quu2tphlvaoj0bgub986s9j5ipgde.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cis454agileproject",
+            "certificate_hash": "96d63e23bba3766f8b5f2c0b1f335591b24cb4e0"
+          }
+        },
+        {
+          "client_id": "33825169607-5g6kktp4mraunsm13krvc5irtnkf3sti.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAivOQF46rw8GkE1nof3Dcua02KSIK-o3c"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "33825169607-5g6kktp4mraunsm13krvc5irtnkf3sti.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

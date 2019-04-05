@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">CIS454AgileProject</string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="title_activity_login">Sign in</string>
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="title_activity_register_main">activity_register_main</string>
+    <string name="signup">Signup</string>
+    <string name="title_activity_register">activity_register</string>
+
+    <string name="sign_in">Sign in</string>
+
+    <string name="please_sign_in_with_your_username_and_password_below">Please sign in with your username and password below</string>
+    <string name="welcome_to_time_bank">Welcome to Time Bank!</string>
+    <string name="time_bank">Time Bank</string>
+    <string name="please_enter_your_information_below_to_register">Please enter your information below to register:</string>
+    <string name="username">Username</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="zipcode">Zipcode</string>
+    <string name="password">Password</string>
+    <string name="confirm_registration">Confirm Registration</string>
+    <string name="address">Address</string>
+    <string name="register">Register</string>
+    <string name="please_either_register_or_sign_in_with_your_username_and_password">Please either Register or Sign In with your username and password</string>
+</resources>
