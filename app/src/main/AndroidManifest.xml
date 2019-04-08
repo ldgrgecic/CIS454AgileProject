@@ -15,7 +15,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".serviceconfirmation"></activity>
         <activity android:name=".ProfileView" />
-        <activity android:name=".Registration" />
+        <activity android:name=".RegistrationActivity" />
         <activity
             android:name=".LoginActivity"
             android:exported="true"

@@ -2,14 +2,14 @@ package com.example.cis454agileproject;
 
 // Creation of all users
 public class User {
-    int userID;
-    int location; // should be a zipcode
-    float timeBank; // all users start at 0
-    String name;
-    String email;
-    String username;
-    String password;
-    String description;
+    private int userID;
+    private int location; // should be a zipcode
+    private float timeBank; // all users start at 0
+    private String name;
+    private String email;
+    private String username;
+    private String password;
+    private String description;
 
 
     // Create user with all fields
