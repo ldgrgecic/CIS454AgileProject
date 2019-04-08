@@ -55,32 +55,32 @@
             android:paddingLeft="5dp"
             android:paddingRight="5dp"
             android:paddingBottom="10dp"
-            android:text="@string/view_confirmation_page_below"
+            android:text="@string/view_your_credentials_below"
             android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
             android:textSize="24sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="30dp"
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/serviceform"
-                android:layout_width="wrap_content"
+                android:id="@+id/nameform"
+                android:layout_width="85dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:paddingLeft="5dp"
                 android:paddingRight="5dp"
-                android:text="@string/service_title"
+                android:text="@string/nameform"
                 android:textAppearance="@style/TextAppearance.AppCompat.Title"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/confservice"
+                android:id="@+id/profname"
                 android:layout_width="350dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textSize="20sp" />
@@ -89,25 +89,25 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="65dp"
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/issuerform"
-                android:layout_width="wrap_content"
+                android:id="@+id/usernameform"
+                android:layout_width="166dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:paddingLeft="5dp"
                 android:paddingRight="5dp"
-                android:text="@string/name_of_issuer"
+                android:text="@string/usernameprof"
                 android:textAppearance="@style/TextAppearance.AppCompat.Title"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/confissuer"
+                android:id="@+id/profusername"
                 android:layout_width="350dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textSize="20sp" />
@@ -116,30 +116,83 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="160dp"
+            android:layout_marginTop="105dp"
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/spentform"
-                android:layout_width="wrap_content"
+                android:id="@+id/addressform"
+                android:layout_width="166dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:paddingLeft="5dp"
                 android:paddingRight="5dp"
-                android:text="@string/time_spent"
+                android:text="@string/addressformm"
                 android:textAppearance="@style/TextAppearance.AppCompat.Title"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/confspent"
+                android:id="@+id/profaddress"
                 android:layout_width="350dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textSize="20sp" />
         </LinearLayout>
 
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="145dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/balanceform"
+            android:layout_width="242dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:text="@string/time_balance"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/profbalance"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="185dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/typeform"
+                android:layout_width="242dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="@string/type_of_user"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/proftype"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textSize="20sp" />
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -148,75 +201,25 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/locationform"
-                android:layout_width="wrap_content"
+                android:id="@+id/descriptionform"
+                android:layout_width="242dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:paddingLeft="5dp"
                 android:paddingRight="5dp"
-                android:text="@string/location_of_service"
+                android:text="@string/descriptionform"
                 android:textAppearance="@style/TextAppearance.AppCompat.Title"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/conflocation"
+                android:id="@+id/profdescription"
                 android:layout_width="350dp"
-                android:layout_height="match_parent"
+                android:layout_height="144dp"
                 android:layout_weight="1"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textSize="20sp" />
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="275dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/arrivalform"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:text="@string/time_until_arrival"
-                android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/confarrival"
-                android:layout_width="350dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textSize="20sp" />
-        </LinearLayout>
-
-        <Button
-            android:id="@+id/confback"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="239dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="85dp"
-            android:layout_marginLeft="85dp"
-            android:layout_marginTop="350dp"
-            android:gravity="center"
-            android:text="@string/back_to_home_page" />
-
-        <Button
-            android:id="@+id/confreview"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="239dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="85dp"
-            android:layout_marginLeft="85dp"
-            android:layout_marginTop="420dp"
-            android:gravity="center"
-            android:text="@string/leave_a_review" />
-
     </FrameLayout>
 
 

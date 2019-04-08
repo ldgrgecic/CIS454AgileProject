@@ -43,4 +43,12 @@
     <string name="time_balance">Time Balance:</string>
     <string name="descriptionform">Description:</string>
     <string name="type_of_user">Type of User:</string>
+    <string name="service_title">Service Title:</string>
+    <string name="view_confirmation_page_below">View confirmation page below:</string>
+    <string name="name_of_issuer">Name of Issuer:</string>
+    <string name="time_spent">Time Spent:</string>
+    <string name="location_of_service">Location of Service:</string>
+    <string name="time_until_arrival">Time Until Arrival:</string>
+    <string name="back_to_home_page">Back to Home Page</string>
+    <string name="leave_a_review">Leave a Review</string>
 </resources>
