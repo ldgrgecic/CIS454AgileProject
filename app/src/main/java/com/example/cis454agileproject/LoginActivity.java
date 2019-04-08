@@ -58,9 +58,13 @@ public class LoginActivity extends AppCompatActivity{
 
         mPasswordView = (EditText) findViewById(R.id.password);
     }
-    public void onClick(View v) {
+    public void login(View v) {
         Intent intent = new Intent(this, MainActivity.class );
         startActivity(intent);
     }
 
+    public void register(View v) {
+        Intent register = new Intent(this, Registration.class );
+        startActivity(register);
+    }
 }

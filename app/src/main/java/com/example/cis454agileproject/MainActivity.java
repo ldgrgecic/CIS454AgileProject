@@ -75,14 +75,16 @@ public class MainActivity extends AppCompatActivity
         // TODO: add functionality to nav item buttons
         switch (id) {
             case R.id.nav_profile:
-
+                Intent profview = new Intent(this, ProfileView.class );
+                startActivity(profview);
                 return true;
             case R.id.nav_create:
 
                 return true;
 
             case R.id.nav_logout:
-
+                Intent logout = new Intent(this, LoginActivity.class );
+                startActivity(logout);
                 return true;
         }
         return true;

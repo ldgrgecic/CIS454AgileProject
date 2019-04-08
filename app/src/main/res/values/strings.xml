@@ -36,4 +36,11 @@
     <string name="address">Address</string>
     <string name="register">Register</string>
     <string name="please_either_register_or_sign_in_with_your_username_and_password">Please either Register or Sign In with your username and password</string>
+    <string name="view_your_credentials_below">View your credentials below:</string>
+    <string name="nameform">Name:</string>
+    <string name="usernameprof">Username:</string>
+    <string name="addressformm">Address:</string>
+    <string name="time_balance">Time Balance:</string>
+    <string name="descriptionform">Description:</string>
+    <string name="type_of_user">Type of User:</string>
 </resources>

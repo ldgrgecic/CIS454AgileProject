@@ -100,7 +100,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:onClick="onClick"
+                android:onClick="login"
                 android:text="@string/sign_in"
                 android:textAppearance="@style/TextAppearance.AppCompat.Button" />
 
@@ -110,6 +110,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:onClick="register"
                 android:text="@string/register"
                 android:textAppearance="@style/TextAppearance.AppCompat.Button" />
 

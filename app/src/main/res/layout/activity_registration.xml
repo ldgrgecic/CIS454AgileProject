@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".Registration">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -116,7 +116,8 @@
             android:layout_width="384dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginBottom="65dp"
+            android:layout_marginBottom="6dp"
+            android:onClick="confirmreg"
             android:text="@string/confirm_registration" />
     </FrameLayout>
 
