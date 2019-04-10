@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".ProfileView">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -42,7 +42,7 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/toolbar"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        tools:context=".MainActivity"
+        tools:context=".ProfileView"
         tools:ignore="MergeRootFrame" >
 
 
@@ -52,22 +52,26 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:paddingStart="5dp"
-            android:paddingLeft="5dp"
-            android:paddingRight="5dp"
+            android:paddingLeft="0dp"
+            android:paddingTop="5dp"
+            android:paddingRight="0dp"
             android:paddingBottom="10dp"
             android:text="@string/view_your_credentials_below"
             android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-            android:textSize="24sp" />
+            android:textSize="20sp"
+            app:fontFamily="sans-serif-medium" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:orientation="horizontal">
+            android:layout_marginTop="45dp"
+            android:orientation="horizontal"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp">
 
             <TextView
                 android:id="@+id/nameform"
-                android:layout_width="85dp"
+                android:layout_width="93dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:paddingLeft="5dp"
@@ -75,7 +79,8 @@
                 android:text="@string/nameform"
                 android:textAppearance="@style/TextAppearance.AppCompat.Title"
                 android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                app:fontFamily="sans-serif-medium" />
 
             <TextView
                 android:id="@+id/profname"
@@ -89,12 +94,14 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="65dp"
-            android:orientation="horizontal">
+            android:layout_marginTop="85dp"
+            android:orientation="horizontal"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp">
 
             <TextView
                 android:id="@+id/usernameform"
-                android:layout_width="166dp"
+                android:layout_width="172dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:paddingLeft="5dp"
@@ -102,7 +109,8 @@
                 android:text="@string/usernameprof"
                 android:textAppearance="@style/TextAppearance.AppCompat.Title"
                 android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                app:fontFamily="sans-serif-medium" />
 
             <TextView
                 android:id="@+id/profusername"
@@ -116,8 +124,10 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="105dp"
-            android:orientation="horizontal">
+            android:layout_marginTop="125dp"
+            android:orientation="horizontal"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp">
 
             <TextView
                 android:id="@+id/addressform"
@@ -129,7 +139,8 @@
                 android:text="@string/addressformm"
                 android:textAppearance="@style/TextAppearance.AppCompat.Title"
                 android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                app:fontFamily="sans-serif-medium" />
 
             <TextView
                 android:id="@+id/profaddress"
@@ -141,52 +152,28 @@
         </LinearLayout>
 
         <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="145dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/balanceform"
-            android:layout_width="242dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:paddingLeft="5dp"
-            android:paddingRight="5dp"
-            android:text="@string/time_balance"
-            android:textAppearance="@style/TextAppearance.AppCompat.Title"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/profbalance"
-            android:layout_width="350dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textSize="20sp" />
-    </LinearLayout>
-
-        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="185dp"
-            android:orientation="horizontal">
+            android:layout_marginTop="165dp"
+            android:orientation="horizontal"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp">
 
             <TextView
-                android:id="@+id/typeform"
+                android:id="@+id/balanceform"
                 android:layout_width="242dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:paddingLeft="5dp"
                 android:paddingRight="5dp"
-                android:text="@string/type_of_user"
+                android:text="@string/time_balance"
                 android:textAppearance="@style/TextAppearance.AppCompat.Title"
                 android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                app:fontFamily="sans-serif-medium" />
 
             <TextView
-                android:id="@+id/proftype"
+                android:id="@+id/profbalance"
                 android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -197,8 +184,10 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="220dp"
-            android:orientation="horizontal">
+            android:layout_marginTop="210dp"
+            android:orientation="horizontal"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp">
 
             <TextView
                 android:id="@+id/descriptionform"
@@ -210,7 +199,8 @@
                 android:text="@string/descriptionform"
                 android:textAppearance="@style/TextAppearance.AppCompat.Title"
                 android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                app:fontFamily="sans-serif-medium" />
 
             <TextView
                 android:id="@+id/profdescription"
@@ -220,6 +210,17 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textSize="20sp" />
         </LinearLayout>
+
+        <Button
+            android:id="@+id/profback"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="155dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="130dp"
+            android:layout_marginTop="375dp"
+            android:onClick="returnhome"
+            android:text="Back to Home"
+            android:textStyle="bold" />
     </FrameLayout>
 
 
