@@ -7,6 +7,7 @@
     tools:context=".ProfileView">
 
     <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay">
@@ -15,14 +16,8 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:layout_alignParentTop="true"
-            android:background="@android:color/holo_blue_dark"
-
-            android:elevation="6dp"
-            android:minHeight="?attr/actionBarSize"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-            app:layout_scrollFlags="scroll|enterAlways"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" tools:targetApi="lollipop">
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay">
 
             <TextView
                 android:id="@+id/toolbar_title"
@@ -30,199 +25,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="@string/time_bank"
+                android:text="Profile"
                 android:textColor="@android:color/white" />
-
         </android.support.v7.widget.Toolbar>
     </android.support.design.widget.AppBarLayout>
 
-    <FrameLayout
-        android:id="@+id/content"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/toolbar"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        tools:context=".ProfileView"
-        tools:ignore="MergeRootFrame" >
+    <include layout="@layout/content_profile_view" />
 
-
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:paddingStart="5dp"
-            android:paddingLeft="0dp"
-            android:paddingTop="5dp"
-            android:paddingRight="0dp"
-            android:paddingBottom="10dp"
-            android:text="@string/view_your_credentials_below"
-            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-            android:textSize="20sp"
-            app:fontFamily="sans-serif-medium" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="45dp"
-            android:orientation="horizontal"
-            android:paddingLeft="5dp"
-            android:paddingRight="5dp">
-
-            <TextView
-                android:id="@+id/nameform"
-                android:layout_width="93dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:text="@string/nameform"
-                android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:fontFamily="sans-serif-medium" />
-
-            <TextView
-                android:id="@+id/profname"
-                android:layout_width="350dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textSize="20sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="85dp"
-            android:orientation="horizontal"
-            android:paddingLeft="5dp"
-            android:paddingRight="5dp">
-
-            <TextView
-                android:id="@+id/usernameform"
-                android:layout_width="172dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:text="@string/usernameprof"
-                android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:fontFamily="sans-serif-medium" />
-
-            <TextView
-                android:id="@+id/profusername"
-                android:layout_width="350dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textSize="20sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="125dp"
-            android:orientation="horizontal"
-            android:paddingLeft="5dp"
-            android:paddingRight="5dp">
-
-            <TextView
-                android:id="@+id/addressform"
-                android:layout_width="166dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:text="@string/addressformm"
-                android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:fontFamily="sans-serif-medium" />
-
-            <TextView
-                android:id="@+id/profaddress"
-                android:layout_width="350dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textSize="20sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="165dp"
-            android:orientation="horizontal"
-            android:paddingLeft="5dp"
-            android:paddingRight="5dp">
-
-            <TextView
-                android:id="@+id/balanceform"
-                android:layout_width="242dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:text="@string/time_balance"
-                android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:fontFamily="sans-serif-medium" />
-
-            <TextView
-                android:id="@+id/profbalance"
-                android:layout_width="350dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textSize="20sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="210dp"
-            android:orientation="horizontal"
-            android:paddingLeft="5dp"
-            android:paddingRight="5dp">
-
-            <TextView
-                android:id="@+id/descriptionform"
-                android:layout_width="242dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:text="@string/descriptionform"
-                android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:fontFamily="sans-serif-medium" />
-
-            <TextView
-                android:id="@+id/profdescription"
-                android:layout_width="350dp"
-                android:layout_height="144dp"
-                android:layout_weight="1"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textSize="20sp" />
-        </LinearLayout>
-
-        <Button
-            android:id="@+id/profback"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="155dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="130dp"
-            android:layout_marginTop="375dp"
-            android:onClick="returnhome"
-            android:text="@string/back_to_home"
-            android:textStyle="bold"
-            android:layout_marginStart="130dp" />
-    </FrameLayout>
-
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        android:onClick="returnhome"
+        app:srcCompat="@drawable/ic_check" />
 
 </android.support.design.widget.CoordinatorLayout>

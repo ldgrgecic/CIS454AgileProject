@@ -42,7 +42,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:paddingTop="10dp"
-        android:text="@string/please_either_register_or_sign_in_with_your_username_and_password"
+        android:text="Please sign in with your email and password or register"
         android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
 
     <ScrollView
@@ -66,8 +66,8 @@
                     android:id="@+id/uname"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/username"
-                    android:inputType="textShortMessage"
+                    android:hint="Email"
+                    android:inputType="textEmailAddress"
                     android:maxLines="1"
                     android:singleLine="true" />
 

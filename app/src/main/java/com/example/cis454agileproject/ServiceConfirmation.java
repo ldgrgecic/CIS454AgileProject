@@ -3,7 +3,7 @@ package com.example.cis454agileproject;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class serviceconfirmation extends AppCompatActivity {
+public class ServiceConfirmation extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
