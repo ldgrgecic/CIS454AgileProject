@@ -52,5 +52,9 @@
     <string name="back_to_home_page">Back to Home Page</string>
     <string name="leave_a_review">Leave a Review</string>
     <string name="description">Description</string>
-    <string name="back_to_home">Back to Home</string>
+    <string name="title_activity_create_service">CreateServiceActivity</string>
+    <string name="title_activity_maps">Map</string>
+
+    <string name="google_maps_key">AIzaSyBPB8MeJ6lXh5MHALEJwIdomY5yICA_gqE</string>
+    <string name="maps_button">Click to Confirm Location</string>
 </resources>
