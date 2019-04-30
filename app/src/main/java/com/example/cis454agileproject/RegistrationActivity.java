@@ -13,6 +13,7 @@ public class RegistrationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_registration);
     }
 
+
     public void confirmreg(View v) {
         Intent intent = new Intent(this, MainActivity.class );
         startActivity(intent);
