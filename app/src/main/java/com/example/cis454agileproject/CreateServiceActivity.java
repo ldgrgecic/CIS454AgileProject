@@ -80,8 +80,8 @@ public class CreateServiceActivity extends AppCompatActivity {
         // TODO: once login functionality is added, put into Service object and add to database
 
         DatabaseReference servRef = db.child("services");
-        Service serv = new Service(currentUser, title, payment, address);
-        servRef.setValue(serv);
+       //Service serv = new Service(currentUser, title, payment, address);
+       // servRef.setValue(serv);
 
 
         Toast.makeText(getApplicationContext(), "Title: " + title + " Payment: " + payment, Toast.LENGTH_SHORT).show();
