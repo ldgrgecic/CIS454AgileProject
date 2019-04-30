@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".RegistrationActivity"
+    tools:showIn="@layout/activity_registration">
+
+    <!-- cs_name is for CreateServiceActivity.java IDs -->
+    <!-- if _text, then its a textview -->
+    <!-- if _content, its an edittext -->
+    <TextView
+        android:id="@+id/cs_name_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="24dp"
+        android:text="Name:"
+        android:textColor="@android:color/black"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/cs_name_content"
+        android:layout_width="273dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cs_name_text"
+        android:layout_marginStart="48dp"
+        android:layout_marginLeft="48dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:hint="Name"
+        android:inputType="text"
+        android:maxLines="1" />
+
+    <TextView
+        android:id="@+id/cs_email_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cs_name_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="13dp"
+        android:text="Email:"
+        android:textColor="@android:color/black"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/cs_email_content"
+        android:layout_width="273dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cs_email_text"
+        android:layout_marginStart="48dp"
+        android:layout_marginLeft="48dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:maxLines="1" />
+
+    <TextView
+        android:id="@+id/cs_addressreg_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cs_email_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="12dp"
+        android:text="Address:"
+        android:textColor="@android:color/black"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/cs_addressreg_content"
+        android:layout_width="272dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cs_addressreg_text"
+        android:layout_marginStart="48dp"
+        android:layout_marginLeft="48dp"
+        android:layout_marginTop="11dp"
+        android:hint="Address"
+        android:inputType="textPostalAddress" />
+
+    <TextView
+        android:id="@+id/cs_password_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cs_addressreg_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="12dp"
+        android:text="Password:"
+        android:textColor="@android:color/black"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/cs_password_content"
+        android:layout_width="272dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cs_password_text"
+        android:layout_marginStart="48dp"
+        android:layout_marginLeft="48dp"
+        android:layout_marginTop="11dp"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:maxLines="1"/>
+
+    <TextView
+        android:id="@+id/cs_description_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cs_password_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="12dp"
+        android:text="Description:"
+        android:textColor="@android:color/black"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/cs_description_content"
+        android:layout_width="272dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cs_description_text"
+        android:layout_marginStart="48dp"
+        android:layout_marginLeft="48dp"
+        android:layout_marginTop="11dp"
+        android:hint="Description"
+        android:inputType="text"
+        android:maxLines="1"/>
+
+
+
+</RelativeLayout>

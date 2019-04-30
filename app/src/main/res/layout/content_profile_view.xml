@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".ProfileView"
+    tools:showIn="@layout/activity_profile_view">
+
+    <!-- cs_name is for CreateServiceActivity.java IDs -->
+    <!-- if _text, then its a textview -->
+    <!-- if _content, its an edittext -->
+    <TextView
+        android:id="@+id/cs_nameprof_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="24dp"
+        android:text="Name:"
+        android:textColor="@android:color/black"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/cs_nameprof_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cs_nameprof_text"
+        android:layout_marginStart="48dp"
+        android:layout_marginLeft="48dp"
+        android:layout_marginTop="11dp"
+        android:text="Test Address"
+        android:textColor="@android:color/black"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/cs_emailprof_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cs_nameprof_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="20dp"
+        android:text="Email:"
+        android:textColor="@android:color/black"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/cs_emailprof_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Test Address"
+        android:layout_marginLeft="48dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="11dp"
+        android:layout_below="@id/cs_emailprof_text"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        />
+
+    <TextView
+        android:id="@+id/cs_addressprof_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cs_emailprof_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="20dp"
+        android:text="Address:"
+        android:textColor="@android:color/black"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/cs_addressprof_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Test Address"
+        android:layout_marginLeft="48dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="11dp"
+        android:layout_below="@id/cs_addressprof_text"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        />
+
+
+    <TextView
+        android:id="@+id/cs_descriptionprof_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cs_addressprof_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="20dp"
+        android:text="Description:"
+        android:textColor="@android:color/black"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/cs_descriptionprof_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Test Address"
+        android:layout_marginLeft="48dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="11dp"
+        android:layout_below="@id/cs_descriptionprof_text"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        />
+
+    <TextView
+        android:id="@+id/cs_balanceprof_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cs_descriptionprof_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="20dp"
+        android:text="Time Balance:"
+        android:textColor="@android:color/black"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/cs_balanceprof_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Test Address"
+        android:layout_marginLeft="48dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="11dp"
+        android:layout_below="@id/cs_balanceprof_text"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        />
+
+
+</RelativeLayout>
