@@ -21,7 +21,7 @@ import org.w3c.dom.Text;
 
 public class CreateServiceActivity extends AppCompatActivity {
 
-    // Firebase auth
+    // Firebase auth get current user
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
     // Variables needed to add to Service object
@@ -86,7 +86,7 @@ public class CreateServiceActivity extends AppCompatActivity {
 
         DatabaseReference servRef = db.child("services");
         Service serv = new Service(user.getDisplayName(), title, payment, address);
-        servRef.child(user.getUid()).setValue(serv);
+        servRef.push().setValue(serv);
 
 
         Toast.makeText(getApplicationContext(), "Title: " + title + " Payment: " + payment, Toast.LENGTH_SHORT).show();
