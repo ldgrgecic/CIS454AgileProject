@@ -4,10 +4,10 @@ public class Service {
 
     private String poster;
     private String title;
-    private int payment;
-    private int location;
+    private double payment;
+    private String location;
 
-    public Service(String poster, String title, int payment, int location){
+    public Service(String poster, String title, double payment, String location){
         setPoster(poster);
         setTitle(title);
         setLocation(location);
@@ -20,10 +20,10 @@ public class Service {
     public String getTitle(){ return this.title; }
     public void setTitle(String title) { this.title = title; }
 
-    public int getPayment() { return this.payment; }
-    public void setPayment(int payment) { this.payment = payment; }
+    public double getPayment() { return this.payment; }
+    public void setPayment(double payment) { this.payment = payment; }
 
-    public int getLocation(){ return this.location; }
-    public void setLocation(int location){ this.location = location; }
+    public String getLocation(){ return this.location; }
+    public void setLocation(String location){ this.location = location; }
 
 }

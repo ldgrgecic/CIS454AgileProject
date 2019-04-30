@@ -7,20 +7,18 @@ public class User {
     private float timeBank; // all users start at 0
     private String name;
     private String email;
-    private String username;
     private String password;
     private String description;
 
 
     // Create user with all fields
-    public User (String name, int userID, String email, String username, String password, String description,
+    public User (String name, int userID, String email, String password, String description,
                  int location, float timeBank){
         setName(name);
         setUserID(userID);
         setLocation(location);
         setTimeBank(timeBank);
         setEmail(email);
-        setUsername(username);
         setPassword(password);
         this.description = description;
     }
@@ -32,9 +30,6 @@ public class User {
 
     public int getUserID(){ return this.userID; }
     public void setUserID(int userID) { this.userID = userID; }
-
-    public String getUsername(){ return this.username; }
-    public void setUsername(String username){ this.username = username; }
 
     public String getPassword(){ return this.password; }
     public void setPassword(String password){ this.password = password; }

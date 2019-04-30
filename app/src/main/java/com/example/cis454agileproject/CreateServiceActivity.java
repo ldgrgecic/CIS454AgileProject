@@ -14,10 +14,15 @@ import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import org.w3c.dom.Text;
 
 public class CreateServiceActivity extends AppCompatActivity {
+
+    // Firebase auth
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
     // Variables needed to add to Service object
     private double lat, lng, payment;
@@ -80,8 +85,8 @@ public class CreateServiceActivity extends AppCompatActivity {
         // TODO: once login functionality is added, put into Service object and add to database
 
         DatabaseReference servRef = db.child("services");
-       //Service serv = new Service(currentUser, title, payment, address);
-       // servRef.setValue(serv);
+        Service serv = new Service(user.getDisplayName(), title, payment, address);
+        servRef.setValue(serv);
 
 
         Toast.makeText(getApplicationContext(), "Title: " + title + " Payment: " + payment, Toast.LENGTH_SHORT).show();
