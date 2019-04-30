@@ -29,7 +29,7 @@ public class LoginActivity extends AppCompatActivity{
         // Set up the login form.
 
 
-        mPasswordView = (EditText) findViewById(R.id.password);
+        mPasswordView = findViewById(R.id.password);
     }
     public void login(View v) {
         Intent intent = new Intent(this, MainActivity.class );

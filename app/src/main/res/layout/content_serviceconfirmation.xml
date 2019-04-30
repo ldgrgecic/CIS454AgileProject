@@ -15,7 +15,7 @@
         android:id="@+id/cs_review_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/appbar"
+
         android:layout_marginStart="24dp"
         android:layout_marginLeft="24dp"
         android:layout_marginTop="24dp"
@@ -149,8 +149,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/cs_leaveareview_text"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:numStars="5"
+        android:layout_marginTop="10dp"
         android:stepSize="0.5" />
 
 

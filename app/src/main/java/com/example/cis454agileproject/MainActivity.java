@@ -86,6 +86,8 @@ public class MainActivity extends AppCompatActivity
                 Intent logout = new Intent(this, LoginActivity.class );
                 startActivity(logout);
                 return true;
+
+
         }
         return true;
     }
