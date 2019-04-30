@@ -86,7 +86,7 @@ public class CreateServiceActivity extends AppCompatActivity {
 
         DatabaseReference servRef = db.child("services");
         Service serv = new Service(user.getDisplayName(), title, payment, address);
-        servRef.setValue(serv);
+        servRef.child(user.getUid()).setValue(serv);
 
 
         Toast.makeText(getApplicationContext(), "Title: " + title + " Payment: " + payment, Toast.LENGTH_SHORT).show();
