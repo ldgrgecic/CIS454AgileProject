@@ -85,7 +85,7 @@ public class CreateServiceActivity extends AppCompatActivity {
         // TODO: once login functionality is added, put into Service object and add to database
 
         DatabaseReference servRef = db.child("services");
-        Service serv = new Service(user.getDisplayName(), title, payment, address);
+        Service serv = new Service(user.getUid(), title, payment, address);
         servRef.push().setValue(serv);
 
 
