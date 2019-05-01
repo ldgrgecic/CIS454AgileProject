@@ -16,6 +16,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class RegistrationActivity extends AppCompatActivity {
 
@@ -24,6 +26,7 @@ public class RegistrationActivity extends AppCompatActivity {
     //ProgressBar progressBar;
 
     private FirebaseAuth mAuth;
+    private DatabaseReference db = FirebaseDatabase.getInstance().getReference();
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -49,6 +52,9 @@ public class RegistrationActivity extends AppCompatActivity {
         email = regEmail.getText().toString();
         password = regPassword.getText().toString();
 
+        //System.out.println(email);
+        //System.out.println(password);
+
         if(TextUtils.isEmpty(email)){
             Toast.makeText(getApplicationContext(), "Please enter an email...", Toast.LENGTH_LONG).show();
             return;
@@ -59,10 +65,15 @@ public class RegistrationActivity extends AppCompatActivity {
         }
 
         mAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                .addOnCompleteListener(RegistrationActivity.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
+                            DatabaseReference userRef = db.child("users");
+                            User user = new User(regName.getText().toString(), regEmail.getText().toString(), regPassword.getText().toString(), regDescription.getText().toString(), regAddress.getText().toString());
+                            userRef.child(mAuth.getCurrentUser().getUid()).setValue(user);
+
+
                             Toast.makeText(getApplicationContext(), "Registration successful!", Toast.LENGTH_LONG).show();
                             //progressBar.setVisibility(View.GONE);
 
@@ -86,7 +97,7 @@ public class RegistrationActivity extends AppCompatActivity {
         regDescription = findViewById(R.id.cs_description_content);
 
         register = findViewById(R.id.fab);
-        //progressBar = findViewByID(R.id.register_progress);
+        //progressBar = findViewById(R.id.register_progress);
     }
 
 
