@@ -15,6 +15,8 @@ import android.view.View;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 /*
     *
@@ -85,7 +87,8 @@ public class MainActivity extends AppCompatActivity
                 startActivity(profview);
                 return true;
             case R.id.nav_create:
-
+                Intent create = new Intent(this, MapsActivity.class);
+                startActivity(create);
                 return true;
 
             case R.id.nav_logout:
