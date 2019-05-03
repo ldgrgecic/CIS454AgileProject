@@ -90,7 +90,12 @@ public class MainActivity extends AppCompatActivity
 
         recyclerView.setLayoutManager(llm);
 
-        ServiceAdapter serviceAdapter = new ServiceAdapter(services(30));
+        ServiceAdapter serviceAdapter = new ServiceAdapter(services(30), new ClickListener() {
+            @Override
+            public void onPositionClicked(int position) {
+                // callback performed on click
+            }
+        });
 
         recyclerView.setAdapter(serviceAdapter);
 
