@@ -56,22 +56,6 @@ public class ProfileView extends AppCompatActivity {
 
         uidRef.addListenerForSingleValueEvent(valueEventListener);
 
-        /*db.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange (DataSnapshot dataSnapshot){
-                DataSnapshot userData = dataSnapshot.child("users").child(user.getUid());
-                mName.setText(userData.child("name").getValue(String.class));
-                mEmail.setText(userData.child("email").getValue(String.class));
-                mAddress.setText(userData.child("location").getValue(String.class));
-                mDescription.setText(userData.child("description").getValue(String.class));
-                mTimebank.setText(String.valueOf(userData.child("timebank").getValue(float.class)));
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                System.out.println("The read failed: " + databaseError.getCode());
-            }
-        });*/
     }
 
 

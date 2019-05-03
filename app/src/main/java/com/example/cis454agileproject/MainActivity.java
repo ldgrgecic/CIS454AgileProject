@@ -2,6 +2,7 @@ package com.example.cis454agileproject;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v7.widget.LinearLayoutManager;
@@ -17,10 +18,13 @@ import android.view.View;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.ValueEventListener;
 
 /*
  *
@@ -114,18 +118,33 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
+    // Reference to db
+    private DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
+    private DatabaseReference servRef = rootRef.child("services");
+
     private List<Service> services(int size){
-        List<Service> result = new ArrayList<Service>();
-        for(int i = 1; i <= size; i++){
-            Service service = new Service();
+        final List<Service> result = new ArrayList<Service>();
 
-            service.setPoster("testPoster");
-            service.setTitle("testTitle");
-            service.setLocation("testLocation");
-            service.setPayment(40);
+            ValueEventListener valueEventListener = new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    for ( DataSnapshot servSnapshot : dataSnapshot.getChildren()){
+                        Service service = new Service();
 
-            result.add(service);
-        }
+                        service.setPoster(servSnapshot.child("poster").getValue(String.class));
+                        service.setTitle(servSnapshot.child("title").getValue(String.class));
+                        service.setLocation(servSnapshot.child("location").getValue(String.class));
+                        service.setPayment(servSnapshot.child("payment").getValue(double.class));
+
+                        result.add(service);
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) { }
+            };
+
+            servRef.addListenerForSingleValueEvent(valueEventListener);
 
         return result;
     }
