@@ -1,7 +1,6 @@
 package com.example.cis454agileproject;
 
-import android.widget.Button;
-
+// Custom listener for service objects
 public interface ClickListener {
     void onPositionClicked(Service s);
 }

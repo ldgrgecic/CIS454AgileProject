@@ -21,17 +21,20 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+// Service confirmation after a service is accepted
 public class ServiceConfirmation extends AppCompatActivity {
 
     private RatingBar user_rating;
     private FloatingActionButton confirm;
 
+    // UI elements
     private TextView mName, mTitle, mTime, mLocation, mDistance;
 
     Service service;
 
+    // database references for services and users
     DatabaseReference servRef, userRef;
-
+    // get current user
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
     @Override
@@ -39,24 +42,24 @@ public class ServiceConfirmation extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_serviceconfirmation);
 
-        //System.out.println(info);
-
         Gson gson = new Gson();
         String strObj = getIntent().getStringExtra("info");
 
+        // create service object from redirect data
         service = gson.fromJson(strObj, Service.class);
 
+        // find UI elements
         mName = findViewById(R.id.cs_review_content);
         mTitle = findViewById(R.id.cs_servicerev_content);
         mTime = findViewById(R.id.cs_timespent_content);
         mLocation = findViewById(R.id.cs_loc_content);
 
+        // populate data
         mName.setText(service.getPoster());
         System.out.println(service.getPoster());
         mTitle.setText(service.getTitle());
         mTime.setText(Double.toString(service.getPayment()));
         mLocation.setText(service.getLocation());
-        //mDistance.setText();
 
         userRef = FirebaseDatabase.getInstance().getReference("users");
         servRef = FirebaseDatabase.getInstance().getReference("services");
@@ -64,6 +67,7 @@ public class ServiceConfirmation extends AppCompatActivity {
         confirm = (FloatingActionButton) findViewById(R.id.fabconf);
         user_rating = (RatingBar) findViewById(R.id.ratingBar);
 
+        // listener for confirmation click
         confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -91,17 +95,11 @@ public class ServiceConfirmation extends AppCompatActivity {
                 };
 
                 userRef.addListenerForSingleValueEvent(valueEventListener);
-
                 servRef.child(service.getServiceId()).removeValue();
 
                 Intent intent = new Intent(ServiceConfirmation.this, MainActivity.class);
                 startActivity(intent);
-
             }
         });
-
-
     }
-
-
 }

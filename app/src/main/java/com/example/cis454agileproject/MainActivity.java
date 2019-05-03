@@ -58,28 +58,31 @@ public class MainActivity extends AppCompatActivity
 
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
+        // Listener for add new post button
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // Switch to map view when button is clicked
                 Intent intent = new Intent(MainActivity.this, MapsActivity.class);
                 startActivity(intent);
-
             }
         });
 
+        // find drawer layout
         DrawerLayout drawer = findViewById(R.id.drawer_layout);                          // set nav drawer
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
+        // find navigation bar
         NavigationView nav = findViewById(R.id.nav_view);
         nav.setNavigationItemSelectedListener(this);
 
 
+        // find recycler view and instantiate constraints
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
-
         recyclerView.setHasFixedSize(true);
 
         LinearLayoutManager llm = new LinearLayoutManager(this);
@@ -88,19 +91,18 @@ public class MainActivity extends AppCompatActivity
 
         recyclerView.setLayoutManager(llm);
 
+        // Service adapter with redirect when a service is clicked
         serviceAdapter = new ServiceAdapter(services(30), new ClickListener() {
             @Override
             public void onPositionClicked(Service s) {
-                // callback performed on click
+                // on click redirect to service confirmation
                 Intent intent = new Intent(MainActivity.this, ServiceConfirmation.class);
                 intent.putExtra("info", (new Gson()).toJson(s));
                 startActivity(intent);
                 return;
             }
         });
-
         recyclerView.setAdapter(serviceAdapter);
-
     }
 
     @Override
@@ -177,9 +179,7 @@ public class MainActivity extends AppCompatActivity
                     //append service to result list
                     result.add(service);
                 }
-
                 serviceAdapter.notifyDataSetChanged();
-
             }
 
             @Override
