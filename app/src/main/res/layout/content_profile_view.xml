@@ -98,17 +98,17 @@
         android:textSize="20sp" />
 
     <TextView
-        android:id="@+id/cs_descriptionprof_content"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:layout_marginLeft="48dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="11dp"
-        android:layout_below="@id/cs_descriptionprof_text"
-        android:textColor="@android:color/black"
-        android:textSize="16sp"
-        />
+    android:id="@+id/cs_descriptionprof_content"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text=""
+    android:layout_marginLeft="48dp"
+    android:layout_marginStart="48dp"
+    android:layout_marginTop="11dp"
+    android:layout_below="@id/cs_descriptionprof_text"
+    android:textColor="@android:color/black"
+    android:textSize="16sp"
+    />
 
     <TextView
         android:id="@+id/cs_balanceprof_text"
@@ -131,6 +131,31 @@
         android:layout_marginStart="48dp"
         android:layout_marginTop="11dp"
         android:layout_below="@id/cs_balanceprof_text"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        />
+
+    <TextView
+        android:id="@+id/cs_ratingprof_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cs_balanceprof_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="20dp"
+        android:text="Rating:"
+        android:textColor="@android:color/black"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/cs_ratingprof_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:layout_marginLeft="48dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="11dp"
+        android:layout_below="@id/cs_ratingprof_text"
         android:textColor="@android:color/black"
         android:textSize="16sp"
         />

@@ -25,6 +25,7 @@ public class ProfileView extends AppCompatActivity {
     private TextView mAddress;
     private TextView mDescription;
     private TextView mTimebank;
+    private TextView mRating;
 
     // Reference to db for current user
     private DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
@@ -42,6 +43,7 @@ public class ProfileView extends AppCompatActivity {
         mAddress = findViewById(R.id.cs_addressprof_content);
         mDescription = findViewById(R.id.cs_descriptionprof_content);
         mTimebank = findViewById(R.id.cs_balanceprof_content);
+        mRating = findViewById(R.id.cs_ratingprof_content);
 
         // Event listener for current user data
         ValueEventListener valueEventListener = new ValueEventListener() {
@@ -51,7 +53,8 @@ public class ProfileView extends AppCompatActivity {
                 mEmail.setText(dataSnapshot.child("email").getValue(String.class));
                 mAddress.setText(dataSnapshot.child("location").getValue(String.class));
                 mDescription.setText(dataSnapshot.child("description").getValue(String.class));
-                mTimebank.setText(Float.toString(dataSnapshot.child("timeBank").getValue(float.class)));
+                mTimebank.setText(Float.toString(dataSnapshot.child("timeBank").getValue(Float.class)));
+                mRating.setText((Double.toString(dataSnapshot.child("avgRating").getValue(Double.class))));
             }
 
             @Override

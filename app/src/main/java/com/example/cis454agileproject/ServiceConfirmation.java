@@ -73,7 +73,7 @@ public class ServiceConfirmation extends AppCompatActivity {
             public void onClick(View v) {
 
                 int stars = user_rating.getNumStars();
-                float rating = user_rating.getRating();
+                final float rating = user_rating.getRating();
 
                 final String posterId = service.getPosterId();
 
@@ -88,6 +88,10 @@ public class ServiceConfirmation extends AppCompatActivity {
 
                         userRef.child(posterId).child("timeBank").setValue(posterTimeBank);
                         userRef.child(user.getUid()).child("timeBank").setValue(currentTimeBank);
+
+                        double posterRating = dataSnapshot.child(posterId).child("avgRating").getValue(Double.class);
+
+                        userRef.child(posterId).child("avgRating").setValue((posterRating+rating) / 2);
                     }
 
                     @Override

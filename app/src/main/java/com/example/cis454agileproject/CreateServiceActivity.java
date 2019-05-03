@@ -94,12 +94,10 @@ public class CreateServiceActivity extends AppCompatActivity {
         ValueEventListener valueEventListener = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-                if(dataSnapshot.child(user.getUid()).child("timeBank").getValue(Double.class) <= 200){
+                if(dataSnapshot.child(user.getUid()).child("timeBank").getValue(Double.class) <= -200){
                     Toast.makeText(getApplicationContext(), "You have not contributed enough to our community, please help others so they may help you!", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(CreateServiceActivity.this, MainActivity.class);
                     startActivity(intent);
-                    return;
                 }
 
                 // Since the mAuth object only contains the uid, we need to cross reference

@@ -8,6 +8,7 @@ public class User {
     private String email;
     private String password;
     private String description;
+    private double avgRating;
 
     public User (String email, String pass){
         setEmail(email);
@@ -22,6 +23,7 @@ public class User {
         setEmail(email);
         setPassword(password);
         this.description = description;
+        setAvgRating(5);
     }
 
     // Setters and getters for most fields
@@ -43,6 +45,9 @@ public class User {
 
     public String getDescription(){ return this.description; }
     public void setDescription(String description) { this.description = description; }
+
+    public double getAvgRating(){ return this.avgRating; }
+    public void setAvgRating(double avgRating) { if(avgRating <= 5) this.avgRating = avgRating; }
 }
 
 
