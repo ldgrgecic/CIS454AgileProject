@@ -12,6 +12,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.widget.Button;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
@@ -40,6 +41,7 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     FirebaseAuth mAuth;
+    ServiceAdapter serviceAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,17 +58,9 @@ public class MainActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent;
-                switch(view.getId()){
-                    case R.id.fab:
-                        intent = new Intent(MainActivity.this, MapsActivity.class);
+                Intent intent = new Intent(MainActivity.this, MapsActivity.class);
                         startActivity(intent);
-                        break;
-                    case R.id.card_accept_btn:
-                        intent = new Intent(MainActivity.this, ServiceConfirmation.class);
-                        startActivity(intent);
-                        break;
-                }
+
             }
         });
 
@@ -90,7 +84,7 @@ public class MainActivity extends AppCompatActivity
 
         recyclerView.setLayoutManager(llm);
 
-        ServiceAdapter serviceAdapter = new ServiceAdapter(services(30));
+        serviceAdapter = new ServiceAdapter(services(10));
 
         recyclerView.setAdapter(serviceAdapter);
 
@@ -168,6 +162,9 @@ public class MainActivity extends AppCompatActivity
                         //append service to result list
                         result.add(service);
                     }
+
+                    serviceAdapter.notifyDataSetChanged();
+
                 }
 
                 @Override
