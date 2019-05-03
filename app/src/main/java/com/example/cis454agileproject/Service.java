@@ -7,6 +7,10 @@ public class Service {
     private double payment;
     private String location;
 
+    public Service(){
+
+    }
+
     public Service(String poster, String title, double payment, String location){
         setPoster(poster);
         setTitle(title);

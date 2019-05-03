@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -13,32 +14,44 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 /*
-    *
-    * Home page displayed after user logs in
-    * Displays all nearby requests the user can complete
-    * User's can create new requests through the FAB
-    * Nav Menu links to most app features
-    *
+ *
+ * Home page displayed after user logs in
+ * Displays all nearby requests the user can complete
+ * User's can create new requests through the FAB
+ * Nav Menu links to most app features
+ *
  */
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener{
 
-    // Elements for recycler view displaying list of services
-    private RecyclerView recyclerView;
-    private RecyclerView.Adapter mAdapter;
-    private RecyclerView.LayoutManager layoutManager;
+    //List<Service> services = new ArrayList<Service>(30);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        recyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
+
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
+
+        recyclerView.setHasFixedSize(true);
+
+        LinearLayoutManager llm = new LinearLayoutManager(this);
+        llm.setOrientation(LinearLayoutManager.VERTICAL);
+
+        recyclerView.setLayoutManager(llm);
+
+        ServiceAdapter serviceAdapter = new ServiceAdapter(services(30));
+
+        recyclerView.setAdapter(serviceAdapter);
 
         // Get Toolbar, FAB, Drawer, and Nav View
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -99,6 +112,22 @@ public class MainActivity extends AppCompatActivity
 
         }
         return true;
+    }
+
+    private List<Service> services(int size){
+        List<Service> result = new ArrayList<Service>();
+        for(int i = 1; i <= size; i++){
+            Service service = new Service();
+
+            service.setPoster("testPoster");
+            service.setTitle("testTitle");
+            service.setLocation("testLocation");
+            service.setPayment(40);
+
+            result.add(service);
+        }
+
+        return result;
     }
 
 }
