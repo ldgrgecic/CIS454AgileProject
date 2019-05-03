@@ -143,24 +143,29 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-    // Reference to db
+    // Reference to db for services
     private DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
     private DatabaseReference servRef = rootRef.child("services");
 
+    // Create list of services to populate home page
     private List<Service> services(int size){
         final List<Service> result = new ArrayList<Service>();
 
+        // Value event listener for service data
             ValueEventListener valueEventListener = new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    // iterate through all services currently in the database
                     for ( DataSnapshot servSnapshot : dataSnapshot.getChildren()){
                         Service service = new Service();
 
+                        // set values for newly created service object based on database
                         service.setPoster(servSnapshot.child("poster").getValue(String.class));
                         service.setTitle(servSnapshot.child("title").getValue(String.class));
                         service.setLocation(servSnapshot.child("location").getValue(String.class));
                         service.setPayment(servSnapshot.child("payment").getValue(double.class));
 
+                        //append service to result list
                         result.add(service);
                     }
                 }

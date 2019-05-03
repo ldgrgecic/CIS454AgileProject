@@ -90,9 +90,13 @@ public class CreateServiceActivity extends AppCompatActivity {
         final DatabaseReference servRef = db.child("services");
         DatabaseReference userRef = db.child("users");
 
+        // value event listener to retrieve current user data
         ValueEventListener valueEventListener = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                // Since the mAuth object only contains the uid, we need to cross reference
+                // to the actual Users table to get the user's name
+                // Then we push all of the data to create a new service
                 String name = dataSnapshot.child(user.getUid()).child("name").getValue(String.class);
                 Service serv = new Service(name, title, payment, address);
                 servRef.push().setValue(serv);
@@ -108,7 +112,7 @@ public class CreateServiceActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), "Title: " + title + " Payment: " + payment, Toast.LENGTH_SHORT).show();
 //        Toast.makeText(getApplicationContext(), "Service Submitted", Toast.LENGTH_SHORT).show();
 
-        //Send user to main page
+        // Send user to main page
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(intent);
     }
