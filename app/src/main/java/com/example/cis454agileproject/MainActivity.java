@@ -35,27 +35,14 @@ import com.google.firebase.database.ValueEventListener;
  *
  */
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener{
+        implements NavigationView.OnNavigationItemSelectedListener {
 
-    //List<Service> services = new ArrayList<Service>(30);
+    FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
-
-        recyclerView.setHasFixedSize(true);
-
-        LinearLayoutManager llm = new LinearLayoutManager(this);
-        llm.setOrientation(LinearLayoutManager.VERTICAL);
-
-        recyclerView.setLayoutManager(llm);
-
-        ServiceAdapter serviceAdapter = new ServiceAdapter(services(30));
-
-        recyclerView.setAdapter(serviceAdapter);
 
         // Get Toolbar, FAB, Drawer, and Nav View
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -81,10 +68,22 @@ public class MainActivity extends AppCompatActivity
         NavigationView nav = findViewById(R.id.nav_view);
         nav.setNavigationItemSelectedListener(this);
 
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("message");
 
-        myRef.setValue("Hello, World!");
+        /*RecyclerView recyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
+
+        recyclerView.setHasFixedSize(true);
+
+        LinearLayoutManager llm = new LinearLayoutManager(this);
+        llm.setReverseLayout(true);
+        llm.setStackFromEnd(true);
+        llm.setOrientation(LinearLayoutManager.VERTICAL);
+
+        recyclerView.setLayoutManager(llm);
+
+        ServiceAdapter serviceAdapter = new ServiceAdapter(services(30));
+
+        recyclerView.setAdapter(serviceAdapter);*/
+
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
@@ -97,7 +96,6 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
 
-        // TODO: add functionality to nav item buttons
         switch (id) {
             case R.id.nav_profile:
                 Intent profview = new Intent(this, ProfileView.class );
@@ -107,9 +105,9 @@ public class MainActivity extends AppCompatActivity
                 Intent create = new Intent(this, MapsActivity.class);
                 startActivity(create);
                 return true;
-
             case R.id.nav_logout:
                 Intent logout = new Intent(this, LoginActivity.class );
+                mAuth.signOut();
                 startActivity(logout);
                 return true;
 
@@ -121,6 +119,7 @@ public class MainActivity extends AppCompatActivity
     // Reference to db
     private DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
     private DatabaseReference servRef = rootRef.child("services");
+    private DatabaseReference userRef = rootRef.child("users");
 
     private List<Service> services(int size){
         final List<Service> result = new ArrayList<Service>();

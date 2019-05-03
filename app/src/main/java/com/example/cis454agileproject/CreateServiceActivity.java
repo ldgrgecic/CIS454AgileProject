@@ -2,6 +2,7 @@ package com.example.cis454agileproject;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -12,10 +13,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.ValueEventListener;
 
 import org.w3c.dom.Text;
 
@@ -82,16 +86,29 @@ public class CreateServiceActivity extends AppCompatActivity {
         }
 
         payment = Double.parseDouble(paymentString);
-        // TODO: once login functionality is added, put into Service object and add to database
 
-        DatabaseReference servRef = db.child("services");
-        Service serv = new Service(user.getUid(), title, payment, address);
-        servRef.push().setValue(serv);
+        final DatabaseReference servRef = db.child("services");
+        DatabaseReference userRef = db.child("users");
+
+        ValueEventListener valueEventListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                String name = dataSnapshot.child(user.getUid()).child("name").getValue(String.class);
+                Service serv = new Service(name, title, payment, address);
+                servRef.push().setValue(serv);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) { }
+        };
+
+        userRef.addListenerForSingleValueEvent(valueEventListener);
 
 
         Toast.makeText(getApplicationContext(), "Title: " + title + " Payment: " + payment, Toast.LENGTH_SHORT).show();
 //        Toast.makeText(getApplicationContext(), "Service Submitted", Toast.LENGTH_SHORT).show();
 
+        //Send user to main page
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(intent);
     }
