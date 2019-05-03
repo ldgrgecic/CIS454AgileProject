@@ -14,11 +14,6 @@ import java.lang.ref.WeakReference;
 
 public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ServiceViewHolder>{
 
-
-    public interface ClickListener{
-        void onPositionClicked(int position);
-    }
-
     private ClickListener listener;
     private List<Service> serviceList;
 
@@ -73,6 +68,8 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ServiceV
         // onClick Listener for view
         @Override
         public void onClick(View v) {
+
+            System.out.println(vButton.getId());
 
             if (v.getId() == vButton.getId()) {
                 Toast.makeText(v.getContext(), "ITEM PRESSED = " + String.valueOf(getAdapterPosition()), Toast.LENGTH_SHORT).show();

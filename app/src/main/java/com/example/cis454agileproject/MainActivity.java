@@ -42,6 +42,8 @@ public class MainActivity extends AppCompatActivity
 
     FirebaseAuth mAuth;
 
+    ServiceAdapter serviceAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,10 +85,13 @@ public class MainActivity extends AppCompatActivity
 
         recyclerView.setLayoutManager(llm);
 
-        ServiceAdapter serviceAdapter = new ServiceAdapter(services(30), new ClickListener() {
+        serviceAdapter = new ServiceAdapter(services(30), new ClickListener() {
             @Override
             public void onPositionClicked(int position) {
                 // callback performed on click
+                Intent intent = new Intent(MainActivity.this, ServiceConfirmation.class);
+                startActivity(intent);
+                return;
             }
         });
 
