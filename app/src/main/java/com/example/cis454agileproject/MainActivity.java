@@ -17,6 +17,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,11 +38,13 @@ import com.google.firebase.database.ValueEventListener;
  * Nav Menu links to most app features
  *
  */
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     FirebaseAuth mAuth;
 
+    //List<Service> services;
     ServiceAdapter serviceAdapter;
 
     @Override
@@ -87,9 +90,10 @@ public class MainActivity extends AppCompatActivity
 
         serviceAdapter = new ServiceAdapter(services(30), new ClickListener() {
             @Override
-            public void onPositionClicked(Button b) {
+            public void onPositionClicked(Service s) {
                 // callback performed on click
                 Intent intent = new Intent(MainActivity.this, ServiceConfirmation.class);
+                intent.putExtra("info", (new Gson()).toJson(s));
                 startActivity(intent);
                 return;
             }

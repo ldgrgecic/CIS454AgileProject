@@ -37,7 +37,7 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ServiceV
         serviceViewHolder.vPayment.setText(Double.toString(service.getPayment()));
         serviceViewHolder.vLocation.setText(service.getLocation());
 
-        serviceViewHolder.bind(serviceViewHolder.vButton, listener);
+        serviceViewHolder.bind(service, listener);
     }
 
     @Override
@@ -68,10 +68,10 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ServiceV
             //vButton.setOnClickListener(this);
         }
 
-        public void bind(final Button b, final ClickListener listener) {
+        public void bind(final Service s, final ClickListener listener) {
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override public void onClick(View v) {
-                    listener.onPositionClicked(b);
+                    listener.onPositionClicked(s);
                 }
             });
         }
