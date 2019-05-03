@@ -83,8 +83,8 @@ public class ServiceConfirmation extends AppCompatActivity {
                         Double posterTimeBank = dataSnapshot.child(posterId).child("timeBank").getValue(Double.class);
                         Double currentTimeBank = dataSnapshot.child(user.getUid()).child("timeBank").getValue(Double.class);
 
-                        posterTimeBank += service.getPayment();
-                        currentTimeBank -= service.getPayment();
+                        posterTimeBank -= service.getPayment();
+                        currentTimeBank += service.getPayment();
 
                         userRef.child(posterId).child("timeBank").setValue(posterTimeBank);
                         userRef.child(user.getUid()).child("timeBank").setValue(currentTimeBank);
