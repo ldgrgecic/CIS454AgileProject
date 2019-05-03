@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, MapsActivity.class);
-                        startActivity(intent);
+                startActivity(intent);
 
             }
         });
@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity
 
         serviceAdapter = new ServiceAdapter(services(30), new ClickListener() {
             @Override
-            public void onPositionClicked(int position) {
+            public void onPositionClicked(Button b) {
                 // callback performed on click
                 Intent intent = new Intent(MainActivity.this, ServiceConfirmation.class);
                 startActivity(intent);
@@ -155,32 +155,32 @@ public class MainActivity extends AppCompatActivity
         final List<Service> result = new ArrayList<Service>();
 
         // Value event listener for service data
-            ValueEventListener valueEventListener = new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    // iterate through all services currently in the database
-                    for ( DataSnapshot servSnapshot : dataSnapshot.getChildren()){
-                        Service service = new Service();
+        ValueEventListener valueEventListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                // iterate through all services currently in the database
+                for ( DataSnapshot servSnapshot : dataSnapshot.getChildren()){
+                    Service service = new Service();
 
-                        // set values for newly created service object based on database
-                        service.setPoster(servSnapshot.child("poster").getValue(String.class));
-                        service.setTitle(servSnapshot.child("title").getValue(String.class));
-                        service.setLocation(servSnapshot.child("location").getValue(String.class));
-                        service.setPayment(servSnapshot.child("payment").getValue(double.class));
+                    // set values for newly created service object based on database
+                    service.setPoster(servSnapshot.child("poster").getValue(String.class));
+                    service.setTitle(servSnapshot.child("title").getValue(String.class));
+                    service.setLocation(servSnapshot.child("location").getValue(String.class));
+                    service.setPayment(servSnapshot.child("payment").getValue(double.class));
 
-                        //append service to result list
-                        result.add(service);
-                    }
-
-                    serviceAdapter.notifyDataSetChanged();
-
+                    //append service to result list
+                    result.add(service);
                 }
 
-                @Override
-                public void onCancelled(@NonNull DatabaseError databaseError) { }
-            };
+                serviceAdapter.notifyDataSetChanged();
 
-            servRef.addListenerForSingleValueEvent(valueEventListener);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) { }
+        };
+
+        servRef.addListenerForSingleValueEvent(valueEventListener);
 
         return result;
     }
