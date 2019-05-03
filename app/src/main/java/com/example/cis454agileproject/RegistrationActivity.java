@@ -20,23 +20,26 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class RegistrationActivity extends AppCompatActivity {
-
+    // references for UI elements
     FloatingActionButton register;
     EditText  regName, regEmail, regAddress, regPassword, regDescription;
     //ProgressBar progressBar;
 
+    // Reference to authorization object and database
     private FirebaseAuth mAuth;
     private DatabaseReference db = FirebaseDatabase.getInstance().getReference();
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
+        // set to registration xml file
         setContentView(R.layout.activity_registration);
 
         mAuth = FirebaseAuth.getInstance();
 
         initializeUI();
 
+        // redirect to method when register button is clicked
         register.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
@@ -64,12 +67,14 @@ public class RegistrationActivity extends AppCompatActivity {
             return;
         }
 
+        // create authorization object with email and password
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(RegistrationActivity.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             DatabaseReference userRef = db.child("users");
+                            // create user with all other fields needed in users table
                             User user = new User(regName.getText().toString(), regEmail.getText().toString(), regPassword.getText().toString(), regDescription.getText().toString(), regAddress.getText().toString());
                             userRef.child(mAuth.getCurrentUser().getUid()).setValue(user);
 

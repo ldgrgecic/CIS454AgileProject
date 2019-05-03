@@ -1,14 +1,15 @@
 package com.example.cis454agileproject;
 
 public class Service {
-
     private String poster;
     private String title;
     private double payment;
     private String location;
 
+    // empty service creation
     public Service(){}
 
+    // create service with all fields
     public Service(String poster, String title, double payment, String location){
         setPoster(poster);
         setTitle(title);
@@ -16,6 +17,7 @@ public class Service {
         setPayment(payment);
     }
 
+    // setters and getters for all fields
     public String getPoster(){ return this.poster; }
     public void setPoster(String poster) { this.poster = poster; }
 

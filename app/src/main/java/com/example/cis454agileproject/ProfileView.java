@@ -19,27 +19,31 @@ public class ProfileView extends AppCompatActivity {
     // Firebase auth get current user
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
+    // References to text view fields on user profile
     private TextView mName;
     private TextView mEmail;
     private TextView mAddress;
     private TextView mDescription;
     private TextView mTimebank;
 
-    // Reference to db
+    // Reference to db for current user
     private DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
-    private DatabaseReference uidRef = rootRef.child("users").child(user.getUid());
+    private DatabaseReference userRef = rootRef.child("users").child(user.getUid());
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // set to profile view xml file
         setContentView(R.layout.activity_profile_view);
 
+        // reference each field to fill
         mName = findViewById(R.id.cs_nameprof_content);
         mEmail = findViewById(R.id.cs_emailprof_content);
         mAddress = findViewById(R.id.cs_addressprof_content);
         mDescription = findViewById(R.id.cs_descriptionprof_content);
         mTimebank = findViewById(R.id.cs_balanceprof_content);
 
+        // Event listener for current user data
         ValueEventListener valueEventListener = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -54,12 +58,12 @@ public class ProfileView extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError databaseError) { }
         };
 
-        uidRef.addListenerForSingleValueEvent(valueEventListener);
+        userRef.addListenerForSingleValueEvent(valueEventListener);
 
     }
 
 
-
+    // return to home screen
     public void returnhome(View v) {
         Intent register = new Intent(this, MainActivity.class);
         startActivity(register);
