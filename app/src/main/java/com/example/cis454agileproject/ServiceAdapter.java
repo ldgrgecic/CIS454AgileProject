@@ -36,6 +36,8 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ServiceV
         serviceViewHolder.vTitle.setText(service.getTitle());
         serviceViewHolder.vPayment.setText(Double.toString(service.getPayment()));
         serviceViewHolder.vLocation.setText(service.getLocation());
+
+        serviceViewHolder.bind(serviceViewHolder.vButton, listener);
     }
 
     @Override
@@ -45,13 +47,14 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ServiceV
         return new ServiceViewHolder(itemView, listener);
     }
 
-    public static class ServiceViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    public static class ServiceViewHolder extends RecyclerView.ViewHolder {
+            //implements View.OnClickListener{
         protected TextView vPoster;
         protected TextView vTitle;
         protected TextView vPayment;
         protected TextView vLocation;
         protected Button vButton;
-        protected WeakReference<ClickListener> listenerRef;
+        //protected WeakReference<ClickListener> listenerRef;
 
         public ServiceViewHolder(final View v, ClickListener listener){
             super(v);
@@ -61,11 +64,19 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ServiceV
             vLocation = (TextView) v.findViewById(R.id.card_address);
             vButton = (Button) v.findViewById(R.id.card_accept_btn);
 
-            v.setOnClickListener(this);
-            vButton.setOnClickListener(this);
+           // v.setOnClickListener(this);
+            //vButton.setOnClickListener(this);
         }
 
-        // onClick Listener for view
+        public void bind(final Button b, final ClickListener listener) {
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override public void onClick(View v) {
+                    listener.onPositionClicked(b);
+                }
+            });
+        }
+
+        /*// onClick Listener for view
         @Override
         public void onClick(View v) {
 
@@ -78,7 +89,7 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ServiceV
             }
 
             listenerRef.get().onPositionClicked(getAdapterPosition());
-        }
+        }*/
 
     }
 

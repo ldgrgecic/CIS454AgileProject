@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity
 
         serviceAdapter = new ServiceAdapter(services(30), new ClickListener() {
             @Override
-            public void onPositionClicked(int position) {
+            public void onPositionClicked(Button b) {
                 // callback performed on click
                 Intent intent = new Intent(MainActivity.this, ServiceConfirmation.class);
                 startActivity(intent);
