@@ -88,12 +88,20 @@ public class CreateServiceActivity extends AppCompatActivity {
         payment = Double.parseDouble(paymentString);
 
         final DatabaseReference servRef = db.child("services");
-        DatabaseReference userRef = db.child("users");
+        final DatabaseReference userRef = db.child("users");
 
         // value event listener to retrieve current user data
         ValueEventListener valueEventListener = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.child(user.getUid()).child("timeBank").getValue(Double.class) <= 200){
+                    Toast.makeText(getApplicationContext(), "You have not contributed enough to our community, please help others so they may help you!", Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(CreateServiceActivity.this, MainActivity.class);
+                    startActivity(intent);
+                    return;
+                }
+
                 // Since the mAuth object only contains the uid, we need to cross reference
                 // to the actual Users table to get the user's name
                 // Then we push all of the data to create a new service
