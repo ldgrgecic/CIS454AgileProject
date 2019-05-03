@@ -98,8 +98,10 @@ public class CreateServiceActivity extends AppCompatActivity {
                 // to the actual Users table to get the user's name
                 // Then we push all of the data to create a new service
                 String name = dataSnapshot.child(user.getUid()).child("name").getValue(String.class);
-                Service serv = new Service(name, title, payment, address);
-                servRef.push().setValue(serv);
+                Service serv = new Service(user.getUid(), name, title, payment, address);
+                String key = servRef.push().getKey();
+                serv.setServiceId(key);
+                servRef.child(key).setValue(serv);
             }
 
             @Override

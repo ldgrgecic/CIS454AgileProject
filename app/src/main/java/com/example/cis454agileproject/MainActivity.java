@@ -171,6 +171,8 @@ public class MainActivity extends AppCompatActivity
                     service.setTitle(servSnapshot.child("title").getValue(String.class));
                     service.setLocation(servSnapshot.child("location").getValue(String.class));
                     service.setPayment(servSnapshot.child("payment").getValue(double.class));
+                    service.setPosterId(servSnapshot.child("posterId").getValue(String.class));
+                    service.setServiceId(servSnapshot.child("serviceId").getValue(String.class));
 
                     //append service to result list
                     result.add(service);
