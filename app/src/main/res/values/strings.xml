@@ -58,4 +58,5 @@
     <string name="google_maps_key">AIzaSyBPB8MeJ6lXh5MHALEJwIdomY5yICA_gqE</string>
     <string name="maps_button">Click to Confirm Location</string>
     <string name="registration">Registration</string>
+    <string name="action_service_menu" />
 </resources>

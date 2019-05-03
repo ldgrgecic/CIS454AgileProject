@@ -14,6 +14,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,8 +56,17 @@ public class MainActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, MapsActivity.class);
-                startActivity(intent);
+                Intent intent;
+                switch(view.getId()){
+                    case R.id.fab:
+                        intent = new Intent(MainActivity.this, MapsActivity.class);
+                        startActivity(intent);
+                        break;
+                    case R.id.card_accept_btn:
+                        intent = new Intent(MainActivity.this, ServiceConfirmation.class);
+                        startActivity(intent);
+                        break;
+                }
             }
         });
 
@@ -69,22 +80,38 @@ public class MainActivity extends AppCompatActivity
         nav.setNavigationItemSelectedListener(this);
 
 
-        /*RecyclerView recyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
 
         recyclerView.setHasFixedSize(true);
 
         LinearLayoutManager llm = new LinearLayoutManager(this);
-        llm.setReverseLayout(true);
-        llm.setStackFromEnd(true);
+        llm.scrollToPosition(0);
         llm.setOrientation(LinearLayoutManager.VERTICAL);
 
         recyclerView.setLayoutManager(llm);
 
         ServiceAdapter serviceAdapter = new ServiceAdapter(services(30));
 
-        recyclerView.setAdapter(serviceAdapter);*/
+        recyclerView.setAdapter(serviceAdapter);
 
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.action_service_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        int id = item.getItemId();
+        if(id == R.id.action_service_menu){
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -107,7 +134,7 @@ public class MainActivity extends AppCompatActivity
                 return true;
             case R.id.nav_logout:
                 Intent logout = new Intent(this, LoginActivity.class );
-                mAuth.signOut();
+                //mAuth.signOut();
                 startActivity(logout);
                 return true;
 
@@ -119,7 +146,6 @@ public class MainActivity extends AppCompatActivity
     // Reference to db
     private DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
     private DatabaseReference servRef = rootRef.child("services");
-    private DatabaseReference userRef = rootRef.child("users");
 
     private List<Service> services(int size){
         final List<Service> result = new ArrayList<Service>();

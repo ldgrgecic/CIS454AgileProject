@@ -95,22 +95,22 @@
             />
 
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/card_accept_btn"
-                android:text="Accept Service"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:paddingRight="16dp"
-                android:paddingEnd="16dp"
-                android:background="@android:color/white"
-                android:textColor="@android:color/holo_purple"/>
+        <Button
+            android:id="@+id/card_accept_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:background="#03A9F4"
+            android:paddingEnd="16dp"
+            android:paddingRight="16dp"
+            android:text="Accept Service"
+            android:textColor="@android:color/holo_orange_dark" />
 
 
 
     </RelativeLayout>
 
-    </android.support.v7.widget.CardView>
+</android.support.v7.widget.CardView>
 
